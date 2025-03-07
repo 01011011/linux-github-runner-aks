@@ -1,7 +1,3 @@
-Below is an example of detailed instructions you could include (for example, in your repository’s README) to explain this project. You can copy and modify this text as needed:
-
-----
-
 # GitHub Runner on AKS
 
 This project demonstrates how to run GitHub self-hosted runners inside containers deployed to an AKS (Azure Kubernetes Service) cluster. The solution builds a Docker image that contains all necessary dependencies, configures the GitHub runner on startup, and manages graceful termination (deregistration) using Kubernetes lifecycle hooks.
