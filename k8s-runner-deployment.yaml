@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-runner
+  namespace: github-runners
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: github-runner
+  template:
+    metadata:
+      labels:
+        app: github-runner
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: github-runner
+        image: msftcontainers/github-runner:latest
+        env:
+        - name: ORGANIZATION
+          value: "01011011"
+        - name: REPOSITORY
+          value: "cummins-arpe"
+        - name: ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-runner-token
+              key: token
+        - name: RUNNER_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: RUNNER_LABELS
+          value: "k8s,latest"
+        securityContext:
+          privileged: true
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/bash", "-c", "./config.sh remove --unattended --token ${ACCESS_TOKEN}"]
