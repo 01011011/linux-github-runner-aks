@@ -19,9 +19,9 @@ spec:
         image: msftcontainers/github-runner:latest
         env:
         - name: ORGANIZATION
-          value: "01011011"
+          value: "<organization_placeholder>" # Replace with your organization identifier.
         - name: REPOSITORY
-          value: "cummins-arpe"
+          value: "<repository_placeholder>"  # Replace with your repository name.
         - name: ACCESS_TOKEN
           valueFrom:
             secretKeyRef:

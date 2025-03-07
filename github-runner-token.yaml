@@ -5,4 +5,4 @@ metadata:
   namespace: github-runners
 type: Opaque
 data:
-  token: QUUySVdOQTQ2TzY0NjRaRlZKV0pCQTNIWkpJVk0= # base64 encoded token AE2IWNA46O6464ZFVJWJBA3HZJIVM
+  token: <base64_encoded_token_placeholder> # Replace this with your base64-encoded token.
